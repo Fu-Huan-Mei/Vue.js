@@ -14,3 +14,4 @@ const vm =  app.mount("#app")
 console.log(vm)//Proxy
 //5、将vm设置为全局变量，就可直接在浏览器的控制台访问
 window.vm = vm
+window.app = app

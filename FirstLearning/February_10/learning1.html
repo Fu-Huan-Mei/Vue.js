@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hello vue</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        //1、编写vue代码
+        //（1）先创建根组件：普通的js对象;组件用来创建组件实例，组件就是组件实例的模板-组件
+        //组件=》组件实例=》虚拟DOM=》DOM（在页面中呈现）
+        const Root = {
+            //template是模板：希望组件在页面中呈现的样子
+            template:"<h1>我爱vue</h1>"
+        }
+        // //（2）创建app实例：需要一个根组件作为参数-应用
+        // const app = Vue.createApp(Root)
+        // //（3）将实例在页面中挂载:实例的方法-挂载应用
+        // app.mount("#app")
+       
+        //将应用和挂载应用写在一起
+        Vue.createApp(Root).mount("#app")
+    </script>
+</body>
+</html>

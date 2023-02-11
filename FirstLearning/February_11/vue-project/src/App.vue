@@ -8,7 +8,11 @@
                     name:"Bob",
                     age:18,
                     gender:"男"
-                }
+                },
+                firstName:"子",
+                lastName:"孙",
+                //数组也是响应式数据
+                arr:["孙悟空","猪八戒","唐僧"]
             } 
         },
         methods:{
@@ -36,17 +40,34 @@
             //     return "哈哈哈"
             // }
             info(){
+//（3）注意：在计算属性getter中，尽量只做读取相关的逻辑，不要执行那些会产生副作用的代码
                 console.log("info调用了！")
                 return this.stu.age>=18?"你是一个成年人！": "你是一个未成年人！" 
+            },
+            //计算属性的简写（只有getter时）
+            // name(){
+            //     return this.lastName + this.firstName
+            // }
+            name:{
+                get(){
+                    return this.lastName + this.firstName
+                },
+                //可以为计算属性设置为setter，使得计算属性可写，但是不建议这么做
+                set(value){
+                    //set在计算属性被修改时调用
+                    this.lastName = value[0]
+                    this.firstName = value.slice[1]
+                }
             }
         }
-    }
+    }//this???不懂
 </script>
 <template>
     <h1>{{ stu.name }}--{{ stu.age }}--{{ stu.gender }}</h1>
     <!--{{  }}里只可以写表达式，不可以写if语句-->
-    <h2>评语：{{ info }}</h2>
-    <h2>methods:{{ getInfo() }}</h2>
+    <h2>评语：{{ info }}</h2><!--info是计算属性，是属性-->
+    <h2>methods:{{ getInfo() }}</h2><!--getInfo是方法，调用时加()-->
     <button @click="updateAge">减龄</button>
-    <!-- <h3>{{ info }}</h3> -->
+    <h3>{{ name }}</h3>
+    <h3>{{ arr[0] }}--{{ arr[1] }}--{{ arr[2] }}</h3>
 </template>

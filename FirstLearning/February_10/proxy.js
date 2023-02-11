@@ -19,7 +19,6 @@ const handler = {
 //（4）在返回值之前做其他操作：在vue中，data()返回的对象会被vue代理；
 //vue代理后，当我们通过代理去读取属性时，返回值值之前，它会先做一个跟踪的操作
 //track()跟踪了谁用了这个属性
-
         return target[prop]
     },
 /*5、set（1）会在通过代理修改对象时调用 */
@@ -30,6 +29,7 @@ const handler = {
         //（3）在修改值后做其他操作
     }
 }
+//6、注意：设置代理时，不会对被代理对象产生影响
 const proxy = new Proxy(obj,handler)
 //修改代理的属性，实际上调用set方法
 proxy.age = 28

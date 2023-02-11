@@ -1,6 +1,5 @@
 <script>
-    import MyButton from '../../components/MyButton.vue';
-    import { shallowReactive } from 'vue';
+  
     export default {
 //data()用来指定实例中的响应式属性
         data(){

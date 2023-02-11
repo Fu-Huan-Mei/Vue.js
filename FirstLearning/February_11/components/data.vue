@@ -1,6 +1,4 @@
 <script>
-    import MyButton from '../../components/MyButton.vue';
-    import { shallowReactive } from 'vue';
     export default {
         // data返回的对象最终会被vue所代理
         data(){
